@@ -1,0 +1,18 @@
+# Raccolta dati
+requests
+
+# Recommender content-based classico
+scikit-learn
+pandas
+numpy
+
+# Recommender content-based con CLIP
+torch
+torchvision
+ftfy
+regex
+git+https://github.com/openai/CLIP.git
+
+# Utility
+tqdm
+Pillow
