@@ -121,6 +121,4 @@ python src/fetch_data.py --department_id 11 --max_items 2000 --output data/met_o
 
 ## 👥 Autore
 
-Massimiliano Giangreco — Matricola 561883
-Corso di Sistemi Intelligenti per Internet — Prof. Giuseppe Sansonetti
-Università degli Studi Roma Tre — A.A. 2025/2026
+Massimiliano Giangreco 
