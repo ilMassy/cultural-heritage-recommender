@@ -41,11 +41,11 @@ evoluzione approvata di una proposta precedente.
 
 ```
 cultural-heritage-recommender/
+├── configs/             # File di configurazione esperimenti (YAML)
 ├── data/                # Dataset (scaricato, non versionato su Git)
+├── results/             # Metriche di valutazione, esempi di spiegabilità
 ├── src/                 # Codice sorgente
 │   └── fetch_data.py    # Raccolta metadati dal MET Museum Open Access API
-├── results/             # Metriche di valutazione, esempi di spiegabilità
-├── configs/             # File di configurazione esperimenti (YAML)
 ├── .gitignore           # File e cartelle esclusi dal controllo versione
 ├── README.md            # Documentazione e stato di avanzamento del progetto
 └── requirements.txt     # Dipendenze Python del progetto
