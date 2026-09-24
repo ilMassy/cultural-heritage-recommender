@@ -21,20 +21,22 @@ del cultural heritage, confrontando due paradigmi:
 
 - 📋 **Content-based classico** — similarità calcolata su metadati/descrizioni testuali delle
   opere (TF-IDF, cosine similarity)
-- 🧠 **Content-based con CLIP** — embedding congiunti immagine+testo per catturare similarità
-  visive e semantiche che i soli metadati non colgono
+- 🧠 **Content-based con CLIP** — embedding congiunti immagine+testo, per verificare se
+  catturano similarità visive e semantiche che i soli metadati non colgono
 
-Il progetto copre:
+Il progetto prevede:
 
-- 📊 **Valutazione rigorosa** — precision@k, recall@k, NDCG
+- 📊 **Valutazione rigorosa** — precision@k, recall@k, NDCG, con baseline random e di popolarità
 - 🔍 **Spiegabilità delle raccomandazioni** — modulo dedicato a motivare ogni suggerimento
-- 🧪 **Ablation study** — peso testo vs immagine, valore di k, design dei profili utente sintetici
+- 🧪 **Ablation study** — peso testo vs immagine, peso del periodo, valore di k, design dei
+  profili utente sintetici
 - ⚖️ **Dichiarazione esplicita dei limiti** — assenza di dati di interazione utente reali nel
   dataset, compensata con profili utente sintetici (scelta nota in letteratura per questo
   dominio, non nascosta nel report)
 
 Il progetto nasce nell'ambito del corso di **Sistemi Intelligenti per Internet**, come
-evoluzione approvata di una proposta precedente.
+evoluzione approvata di una proposta precedente. Lo stato di avanzamento dettagliato, con i
+limiti metodologici e i prossimi passi, è in [`docs/REPORT_AVANZAMENTO.md`](docs/REPORT_AVANZAMENTO.md).
 
 ---
 
@@ -42,11 +44,12 @@ evoluzione approvata di una proposta precedente.
 
 ```
 cultural-heritage-recommender/
-├── configs/                        # File di configurazione esperimenti (YAML)
 ├── data/
 │   ├── met_objects.jsonl           # 2000 opere (European Paintings)
 │   ├── synthetic_users.json        # 50 profili utente sintetici
 │   └── clip_cache/                 # Embedding CLIP (rigenerabili, non versionati)
+├── docs/
+│   └── REPORT_AVANZAMENTO.md       # Report di avanzamento (stato, risultati, limiti)
 ├── results/                        # Metriche, raccomandazioni, esempi di spiegabilità
 ├── src/
 │   ├── fetch_data.py               # Raccolta metadati dal MET Museum Open Access API
@@ -58,7 +61,8 @@ cultural-heritage-recommender/
 │   └── test_pipeline.py            # Test su mini-dataset sintetico
 ├── .gitignore                      # File e cartelle esclusi dal controllo versione
 ├── README.md                       # Documentazione e stato di avanzamento del progetto
-└── requirements.txt                # Dipendenze Python del progetto
+├── requirements.txt                # Dipendenze Python del progetto
+└── requirements-lock.txt           # Versioni esatte usate per i risultati (pip freeze)
 ```
 
 Gli script in `src/` si importano a vicenda (es. `recommender_clip.py` usa
@@ -101,8 +105,17 @@ python3 -m venv venv
 source venv/bin/activate
 
 # 2. Installa dipendenze
-pip install -r requirements.txt
+pip install -r requirements.txt          # dipendenze del progetto
+# oppure, per riprodurre esattamente l'ambiente dei risultati:
+pip install -r requirements-lock.txt
 ```
+
+**Versioni e hardware.** I risultati sono stati ottenuti con le versioni in
+`requirements-lock.txt` (generato con `pip freeze` nell'ambiente usato). La versione di
+`transformers` conta: in quella installata `get_text_features` restituiva un oggetto invece
+di un tensore, per questo `embed_clip.py` passa da `text_model`/`vision_model` più la
+proiezione. Il calcolo degli embedding CLIP richiede una GPU CUDA per tempi ragionevoli
+(su CPU funziona ma è molto più lento); TF-IDF, baseline e valutazione girano su CPU.
 
 ## 📥 Raccolta dati
 
@@ -132,6 +145,17 @@ python src/embed_clip.py
 python src/recommender_clip.py --top_k 10
 ```
 
+**Analisi di sensibilità sul peso del periodo (TF-IDF).** Producono le righe "TF-IDF senza
+boost periodo" (`--period_weight 0`) e "Solo periodo" (`--period_weight 1`) della tabella dei
+risultati; con il default (0.15) si ottiene la baseline principale.
+
+```bash
+python src/recommender_baseline.py --top_k 10 --period_weight 0 \
+    --output results/baseline_recommendations_pw0.json --metrics_output results/baseline_metrics_pw0.json
+python src/recommender_baseline.py --top_k 10 --period_weight 1 \
+    --output results/baseline_recommendations_pw1.json --metrics_output results/baseline_metrics_pw1.json
+```
+
 ---
 
 ## 🗺️ Roadmap
@@ -144,6 +168,7 @@ python src/recommender_clip.py --top_k 10
 - [x] Generazione profili utente sintetici (50 utenti) e ground truth
 - [x] Recommender content-based classico (baseline TF-IDF)
 - [x] Baseline random e di popolarità
+- [x] Analisi di sensibilità sul peso del periodo per TF-IDF (0, 0.15, 1)
 - [x] Recommender content-based con embedding CLIP (α = 0, 0.5, 1)
 - [x] Valutazione a k=10 (precision@k, recall@k, NDCG) per tutti i modelli
 - [ ] Ablation sul peso del periodo per CLIP
@@ -172,8 +197,8 @@ python src/recommender_clip.py --top_k 10
 | Popolarità (highlight) | 0.061 | 0.06 | 0.061 |
 | Popolarità (tag) | 0.040 | 0.04 | 0.035 |
 | **TF-IDF** (con boost periodo 0.15) | **0.588** | 0.59 | 0.613 |
-| TF-IDF senza boost periodo | 0.432 | 0.43 | 0.451 |
-| Solo periodo (riferimento) | 0.354 | 0.35 | 0.343 |
+| TF-IDF senza boost periodo (`--period_weight 0`) | 0.432 | 0.43 | 0.451 |
+| Solo periodo (`--period_weight 1`, riferimento) | 0.354 | 0.35 | 0.343 |
 | CLIP α=0 (solo testo) | 0.314 | 0.31 | 0.344 |
 | CLIP α=0.5 (mista) | 0.302 | 0.30 | 0.315 |
 | CLIP α=1 (solo immagine) | 0.252 | 0.25 | 0.260 |
@@ -198,15 +223,26 @@ di P@10 è circa 0.21 per TF-IDF e 0.24 per CLIP.
 
 ## ⚠️ Limiti noti
 
+- **Termine "periodo" condiviso:** la funzione del periodo (`1 − |anno − centro| / 50`) è
+  identica nel ground truth e nei recommender. Il solo periodo raggiunge P@10 = 0.354, quindi
+  parte del risultato dei modelli dipende da un termine in comune con l'etichettatura.
 - **Profili sintetici:** nessun dato di interazione reale; un solo seed di generazione.
 - **Feature condivise:** ground truth e TF-IDF usano gli stessi attributi (nazionalità,
-  classificazione, tag, periodo), quindi un accordo elevato è in parte atteso.
+  classificazione, tag, periodo), quindi un accordo elevato è in parte atteso; il ground truth
+  è basato su metadati e favorisce i metodi che li usano direttamente.
+- **Nessuna misura di incertezza né test di significatività:** metriche medie su 50 utenti con
+  deviazione standard ≈ 0.21–0.25; test appaiati e intervalli di confidenza sono in roadmap.
 - **Diversità dei profili limitata:** 14 nazionalità su 34, 4 classificazioni su 6, 105 tag su
   527 usati dai profili; i gusti popolari sono favoriti dal campionamento per frequenza.
 - **Scale diverse tra i modelli:** nel TF-IDF il coseno è grezzo, in CLIP le serie sono
   normalizzate min-max per utente, quindi lo stesso peso nominale del periodo ha un'influenza
   effettiva diversa.
+- **Costruzione del profilo in CLIP:** il prompt utente è un elenco di tag eterogenei che un
+  singolo embedding riduce a una media di concetti; questo può penalizzare CLIP per come è
+  costruito il profilo e non per il modello.
 - **Testo delle opere senza nazionalità** nell'input CLIP, mentre il prompt utente la contiene.
+- **Scope ristretto:** un solo dipartimento (European Paintings) e un solo modello CLIP
+  (`clip-vit-base-patch32`).
 
 ---
 

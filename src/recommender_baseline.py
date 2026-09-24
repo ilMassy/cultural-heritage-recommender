@@ -116,13 +116,14 @@ def period_boost(profile, record):
     return max(0.0, 1.0 - dist / profile["period_bandwidth"])
 
 
-def recommend_for_profile(profile, item_ids, item_vectors, records_by_id, idf, top_k):
+def recommend_for_profile(profile, item_ids, item_vectors, records_by_id, idf, top_k,
+                          period_weight=PERIOD_BOOST_WEIGHT):
     user_vec = vectorize(build_user_document(profile), idf)
     scored = []
     for oid in item_ids:
         sim = cosine_similarity(user_vec, item_vectors[oid])
         boost = period_boost(profile, records_by_id[oid])
-        final_score = (1 - PERIOD_BOOST_WEIGHT) * sim + PERIOD_BOOST_WEIGHT * boost
+        final_score = (1 - period_weight) * sim + period_weight * boost
         scored.append((oid, final_score))
     scored.sort(key=lambda x: x[1], reverse=True)
     return scored[:top_k]
@@ -165,9 +166,16 @@ def main():
     parser.add_argument("--profiles", type=str, default="data/synthetic_users.json")
     parser.add_argument("--relevance", type=str, default="results/user_relevance_sets.json")
     parser.add_argument("--top_k", type=int, default=10)
+    parser.add_argument("--period_weight", type=float, default=PERIOD_BOOST_WEIGHT,
+                        help="Peso del boost del periodo in [0, 1]: score = (1-w)*coseno + w*boost. "
+                             "Default 0.15 (baseline). 0 = solo TF-IDF; 1 = ranking solo per periodo "
+                             "(riferimento per l'analisi di sensibilita').")
     parser.add_argument("--output", type=str, default="results/baseline_recommendations.json")
     parser.add_argument("--metrics_output", type=str, default="results/baseline_metrics.json")
     args = parser.parse_args()
+
+    if not 0.0 <= args.period_weight <= 1.0:
+        raise ValueError("--period_weight deve essere in [0, 1].")
 
     records = load_jsonl(args.objects)
     profiles = load_json(args.profiles)
@@ -187,7 +195,8 @@ def main():
 
     for profile in profiles:
         uid = str(profile["user_id"])
-        top = recommend_for_profile(profile, item_ids, item_vectors, records_by_id, idf, args.top_k)
+        top = recommend_for_profile(profile, item_ids, item_vectors, records_by_id, idf, args.top_k,
+                                    period_weight=args.period_weight)
         recommended_ids = [oid for oid, _ in top]
         all_recommendations[uid] = [{"objectID": oid, "score": score} for oid, score in top]
 
@@ -198,6 +207,7 @@ def main():
 
     metrics = {
         "top_k": args.top_k,
+        "period_weight": args.period_weight,
         "n_users": len(profiles),
         "precision_at_k": float(np.mean(precisions)),
         "recall_at_k": float(np.mean(recalls)),
@@ -211,7 +221,7 @@ def main():
     with open(args.metrics_output, "w", encoding="utf-8") as f:
         json.dump(metrics, f, ensure_ascii=False, indent=2)
 
-    print(f"\nMetriche baseline (top_k={args.top_k}):")
+    print(f"\nMetriche baseline (top_k={args.top_k}, peso periodo={args.period_weight}):")
     print(f"  precision@{args.top_k}: {metrics['precision_at_k']:.3f}")
     print(f"  recall@{args.top_k}:    {metrics['recall_at_k']:.3f}")
     print(f"  ndcg@{args.top_k}:      {metrics['ndcg_at_k']:.3f}")
