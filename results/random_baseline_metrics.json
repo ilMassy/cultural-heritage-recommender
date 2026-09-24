@@ -1,0 +1,45 @@
+{
+  "config": {
+    "top_k": 10,
+    "n_users": 50,
+    "n_items": 2000,
+    "n_highlight": 92,
+    "mean_relevance_set_size": 100.0,
+    "n_runs": 200,
+    "seed": 42
+  },
+  "expected_random_precision": 0.05,
+  "max_recall_at_k": 0.1,
+  "random": {
+    "n_runs": 200,
+    "precision_at_k": 0.04948,
+    "recall_at_k": 0.004948,
+    "ndcg_at_k": 0.04959775989378772,
+    "std_runs": {
+      "precision_at_k": 0.010002479692556241,
+      "recall_at_k": 0.0010002479692556242,
+      "ndcg_at_k": 0.011231618220161877
+    }
+  },
+  "popularity_highlight": {
+    "n_runs": 200,
+    "precision_at_k": 0.06146000000000001,
+    "recall_at_k": 0.006146,
+    "ndcg_at_k": 0.06120793858272886,
+    "std_runs": {
+      "precision_at_k": 0.009570182861366862,
+      "recall_at_k": 0.0009570182861366861,
+      "ndcg_at_k": 0.010581591876604382
+    }
+  },
+  "popularity_tags": {
+    "precision_at_k": 0.04,
+    "recall_at_k": 0.004,
+    "ndcg_at_k": 0.03496503837321346,
+    "std_users": {
+      "precision_at_k": 0.066332495807108,
+      "recall_at_k": 0.0066332495807108,
+      "ndcg_at_k": 0.05865869109780654
+    }
+  }
+}

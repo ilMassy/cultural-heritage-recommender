@@ -1,6 +1,7 @@
 venv/
-data/
 *.jsonl
 __pycache__/
 *.pyc
 .env
+data/clip_cache/
+!data/met_objects.jsonl

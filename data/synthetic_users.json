@@ -1,0 +1,1202 @@
+[
+  {
+    "user_id": 0,
+    "preferred_nationalities": [
+      "German"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Pastels & Oil Sketches on Paper"
+    ],
+    "preferred_tags": [
+      "Saint Peter",
+      "Flowers",
+      "Men",
+      "Venice"
+    ],
+    "period_center": 1810,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.25729886872786945,
+      "period": 0.20908951312003804,
+      "classification": 0.1341780626758519,
+      "tags": 0.39943355547624065
+    }
+  },
+  {
+    "user_id": 1,
+    "preferred_nationalities": [
+      "Netherlandish",
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Joseph",
+      "Reading",
+      "Portraits",
+      "Night"
+    ],
+    "period_center": 1775,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.24725171251148345,
+      "period": 0.18225310818253357,
+      "classification": 0.13511371325462326,
+      "tags": 0.43538146605135974
+    }
+  },
+  {
+    "user_id": 2,
+    "preferred_nationalities": [
+      "Dutch"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Satyrs",
+      "Portraits",
+      "Dogs",
+      "Winter"
+    ],
+    "period_center": 1872,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.31673641708632216,
+      "period": 0.20082557076223356,
+      "classification": 0.11161758713878747,
+      "tags": 0.3708204250126569
+    }
+  },
+  {
+    "user_id": 3,
+    "preferred_nationalities": [
+      "German",
+      "Dutch"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Drawings"
+    ],
+    "preferred_tags": [
+      "Dogs",
+      "Portraits",
+      "Fruit",
+      "Men",
+      "Women"
+    ],
+    "period_center": 1700,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2594656162935202,
+      "period": 0.21960762582631654,
+      "classification": 0.1859259469929946,
+      "tags": 0.33500081088716854
+    }
+  },
+  {
+    "user_id": 4,
+    "preferred_nationalities": [
+      "Netherlandish"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Grapes",
+      "Girls",
+      "Profiles",
+      "Roads"
+    ],
+    "period_center": 1526,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.25693147227417873,
+      "period": 0.2166871115330069,
+      "classification": 0.1744703723150862,
+      "tags": 0.35191104387772804
+    }
+  },
+  {
+    "user_id": 5,
+    "preferred_nationalities": [
+      "Italian"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Women",
+      "Men",
+      "Portraits",
+      "Monks",
+      "Annunciation"
+    ],
+    "period_center": 1525,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.24644794707289555,
+      "period": 0.22098642733432514,
+      "classification": 0.12854529794887037,
+      "tags": 0.40402032764390894
+    }
+  },
+  {
+    "user_id": 6,
+    "preferred_nationalities": [
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Boats",
+      "Women",
+      "Books",
+      "Human Figures"
+    ],
+    "period_center": 1890,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.28236733040702466,
+      "period": 0.19445460760267308,
+      "classification": 0.12842487543009878,
+      "tags": 0.3947531865602036
+    }
+  },
+  {
+    "user_id": 7,
+    "preferred_nationalities": [
+      "French",
+      "Greek"
+    ],
+    "preferred_classifications": [
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Mary Magdalene",
+      "Portraits",
+      "Saint George",
+      "Actors",
+      "Drinking Glasses"
+    ],
+    "period_center": 1532,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2314140599167113,
+      "period": 0.21594504186794114,
+      "classification": 0.1166623503847055,
+      "tags": 0.43597854783064205
+    }
+  },
+  {
+    "user_id": 8,
+    "preferred_nationalities": [
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Women",
+      "Dancers",
+      "Reading",
+      "Rivers",
+      "Madonna and Child"
+    ],
+    "period_center": 1645,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2466434320956026,
+      "period": 0.2751259757473559,
+      "classification": 0.1355863898626376,
+      "tags": 0.3426442022944038
+    }
+  },
+  {
+    "user_id": 9,
+    "preferred_nationalities": [
+      "Italian",
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Landscapes",
+      "Women",
+      "Castles",
+      "Portraits",
+      "Birds"
+    ],
+    "period_center": 1645,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2713889732817156,
+      "period": 0.143664143271956,
+      "classification": 0.11271976937535752,
+      "tags": 0.47222711407097095
+    }
+  },
+  {
+    "user_id": 10,
+    "preferred_nationalities": [
+      "Italian"
+    ],
+    "preferred_classifications": [
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Musical Instruments",
+      "Music",
+      "Portraits"
+    ],
+    "period_center": 1770,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.23237150426265857,
+      "period": 0.19893888398926177,
+      "classification": 0.13252277349492295,
+      "tags": 0.4361668382531566
+    }
+  },
+  {
+    "user_id": 11,
+    "preferred_nationalities": [
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Portraits",
+      "Cross",
+      "Cows"
+    ],
+    "period_center": 1500,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2640554851894077,
+      "period": 0.25646185085196693,
+      "classification": 0.12871138011800862,
+      "tags": 0.35077128384061673
+    }
+  },
+  {
+    "user_id": 12,
+    "preferred_nationalities": [
+      "Italian"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Holy Family",
+      "Portraits",
+      "Masks"
+    ],
+    "period_center": 1760,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2756881352790907,
+      "period": 0.19676489867152797,
+      "classification": 0.15150122371637778,
+      "tags": 0.37604574233300353
+    }
+  },
+  {
+    "user_id": 13,
+    "preferred_nationalities": [
+      "Italian"
+    ],
+    "preferred_classifications": [
+      "Pastels & Oil Sketches on Paper"
+    ],
+    "preferred_tags": [
+      "Lemons",
+      "Garlands",
+      "Bread",
+      "Waterfalls"
+    ],
+    "period_center": 1775,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.24699795334942534,
+      "period": 0.24794072602028824,
+      "classification": 0.15043644415925075,
+      "tags": 0.35462487647103563
+    }
+  },
+  {
+    "user_id": 14,
+    "preferred_nationalities": [
+      "British"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Writing",
+      "Women",
+      "Men",
+      "Drinking",
+      "Dogs"
+    ],
+    "period_center": 1532,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.32141694329358933,
+      "period": 0.1439066084779174,
+      "classification": 0.10472432721864228,
+      "tags": 0.4299521210098509
+    }
+  },
+  {
+    "user_id": 15,
+    "preferred_nationalities": [
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Forests",
+      "Men",
+      "Infants",
+      "Sadness"
+    ],
+    "period_center": 1859,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.20455639998324107,
+      "period": 0.16888715721333847,
+      "classification": 0.14421982316247148,
+      "tags": 0.482336619640949
+    }
+  },
+  {
+    "user_id": 16,
+    "preferred_nationalities": [
+      "French"
+    ],
+    "preferred_classifications": [
+      "Miniatures",
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Portraits",
+      "Saints",
+      "Monks",
+      "Princes",
+      "Dining"
+    ],
+    "period_center": 1875,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.24991812848604533,
+      "period": 0.22199445483938657,
+      "classification": 0.16621855140070718,
+      "tags": 0.3618688652738609
+    }
+  },
+  {
+    "user_id": 17,
+    "preferred_nationalities": [
+      "Greek",
+      "Netherlandish"
+    ],
+    "preferred_classifications": [
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Nymphs",
+      "Skating",
+      "Flowers",
+      "Venus",
+      "Men"
+    ],
+    "period_center": 1495,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.26190989607699117,
+      "period": 0.2051813065109911,
+      "classification": 0.052291694128425284,
+      "tags": 0.48061710328359253
+    }
+  },
+  {
+    "user_id": 18,
+    "preferred_nationalities": [
+      "Netherlandish",
+      "Italian"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Amazons",
+      "Boats",
+      "Women",
+      "Paris",
+      "Adoration of the Magi"
+    ],
+    "period_center": 1455,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.3641745706880947,
+      "period": 0.13030167696429426,
+      "classification": 0.12124081754156152,
+      "tags": 0.3842829348060495
+    }
+  },
+  {
+    "user_id": 19,
+    "preferred_nationalities": [
+      "French"
+    ],
+    "preferred_classifications": [
+      "Miniatures",
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Portraits",
+      "Women",
+      "Men"
+    ],
+    "period_center": 1645,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.24837035027450827,
+      "period": 0.19474012637953503,
+      "classification": 0.16858556454415097,
+      "tags": 0.3883039588018058
+    }
+  },
+  {
+    "user_id": 20,
+    "preferred_nationalities": [
+      "Italian"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Drawings"
+    ],
+    "preferred_tags": [
+      "Dancing",
+      "Men",
+      "Women",
+      "Madonna and Child"
+    ],
+    "period_center": 1626,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.32729746888469635,
+      "period": 0.21837805760767237,
+      "classification": 0.1113808282329436,
+      "tags": 0.34294364527468774
+    }
+  },
+  {
+    "user_id": 21,
+    "preferred_nationalities": [
+      "Spanish"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Drawings"
+    ],
+    "preferred_tags": [
+      "Mars",
+      "Samson",
+      "Sky"
+    ],
+    "period_center": 1533,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.26037160887964567,
+      "period": 0.1910776245212977,
+      "classification": 0.14926756570232075,
+      "tags": 0.3992832008967359
+    }
+  },
+  {
+    "user_id": 22,
+    "preferred_nationalities": [
+      "Italian"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Men",
+      "Violins",
+      "Madonna and Child",
+      "Women",
+      "Portraits"
+    ],
+    "period_center": 1705,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.30193109928041123,
+      "period": 0.18904586095861295,
+      "classification": 0.1513137098529756,
+      "tags": 0.35770932990800025
+    }
+  },
+  {
+    "user_id": 23,
+    "preferred_nationalities": [
+      "Spanish"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Portraits",
+      "Christ",
+      "Hammers",
+      "Still Life",
+      "Nymphs"
+    ],
+    "period_center": 1805,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.234443096542323,
+      "period": 0.20269756041450993,
+      "classification": 0.11477224032873475,
+      "tags": 0.44808710271443225
+    }
+  },
+  {
+    "user_id": 24,
+    "preferred_nationalities": [
+      "German"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Horses",
+      "Men",
+      "Rivers",
+      "Last Supper"
+    ],
+    "period_center": 1823,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.24972409474024362,
+      "period": 0.14316060003348638,
+      "classification": 0.1256313474177584,
+      "tags": 0.48148395780851166
+    }
+  },
+  {
+    "user_id": 25,
+    "preferred_nationalities": [
+      "British, Scottish"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Horses",
+      "Women",
+      "Girls",
+      "Musical Instruments",
+      "Houses"
+    ],
+    "period_center": 1878,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.23673338831504687,
+      "period": 0.18173447545551039,
+      "classification": 0.1523616024075038,
+      "tags": 0.42917053382193887
+    }
+  },
+  {
+    "user_id": 26,
+    "preferred_nationalities": [
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Madonna and Child",
+      "Hunting",
+      "Mountains"
+    ],
+    "period_center": 1460,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.27829246435518273,
+      "period": 0.19411445611478567,
+      "classification": 0.14832555229716707,
+      "tags": 0.3792675272328645
+    }
+  },
+  {
+    "user_id": 27,
+    "preferred_nationalities": [
+      "French",
+      "Swiss"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Dogs",
+      "Cows",
+      "Boys",
+      "Lobsters"
+    ],
+    "period_center": 1628,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.23237986597677254,
+      "period": 0.21639202688079084,
+      "classification": 0.13451626209333545,
+      "tags": 0.41671184504910125
+    }
+  },
+  {
+    "user_id": 28,
+    "preferred_nationalities": [
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Landscapes",
+      "Cups",
+      "Putti",
+      "Boats",
+      "Allegory"
+    ],
+    "period_center": 1476,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2232148880749681,
+      "period": 0.1428442058079357,
+      "classification": 0.13135946621235436,
+      "tags": 0.5025814399047418
+    }
+  },
+  {
+    "user_id": 29,
+    "preferred_nationalities": [
+      "French",
+      "Hungarian"
+    ],
+    "preferred_classifications": [
+      "Miniatures",
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Adoration of the Magi",
+      "Men",
+      "Candlesticks",
+      "Buildings",
+      "Still Life"
+    ],
+    "period_center": 1732,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2767334215737425,
+      "period": 0.20318352315310867,
+      "classification": 0.1695944989253763,
+      "tags": 0.3504885563477726
+    }
+  },
+  {
+    "user_id": 30,
+    "preferred_nationalities": [
+      "French"
+    ],
+    "preferred_classifications": [
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Playing Cards",
+      "Men",
+      "Female Nudes",
+      "Horses",
+      "Lions"
+    ],
+    "period_center": 1870,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2164094110356664,
+      "period": 0.10251283674836453,
+      "classification": 0.1428288530957096,
+      "tags": 0.5382488991202594
+    }
+  },
+  {
+    "user_id": 31,
+    "preferred_nationalities": [
+      "Dutch",
+      "German"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Infants",
+      "Paris",
+      "Joseph"
+    ],
+    "period_center": 1720,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.25695816510690594,
+      "period": 0.21022828597175564,
+      "classification": 0.09379675757435466,
+      "tags": 0.4390167913469838
+    }
+  },
+  {
+    "user_id": 32,
+    "preferred_nationalities": [
+      "Dutch, British"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Men",
+      "Horses",
+      "Resurrection"
+    ],
+    "period_center": 1825,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.1764677395645912,
+      "period": 0.27442713350026937,
+      "classification": 0.13336306441018897,
+      "tags": 0.41574206252495044
+    }
+  },
+  {
+    "user_id": 33,
+    "preferred_nationalities": [
+      "British"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Last Supper",
+      "Portraits",
+      "Self-portraits",
+      "Mary Magdalene"
+    ],
+    "period_center": 1526,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2219365587737297,
+      "period": 0.24314280193000032,
+      "classification": 0.16084249140069992,
+      "tags": 0.3740781478955701
+    }
+  },
+  {
+    "user_id": 34,
+    "preferred_nationalities": [
+      "French",
+      "Italian"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Madonna and Child",
+      "Horses",
+      "Roads",
+      "Angels",
+      "Women"
+    ],
+    "period_center": 1460,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.18228043930084728,
+      "period": 0.17951537981740395,
+      "classification": 0.15826141579224104,
+      "tags": 0.4799427650895078
+    }
+  },
+  {
+    "user_id": 35,
+    "preferred_nationalities": [
+      "Netherlandish"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Saint John the Evangelist",
+      "Still Life",
+      "Portraits"
+    ],
+    "period_center": 1790,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.23792653892593116,
+      "period": 0.2585049320268451,
+      "classification": 0.09485233313966784,
+      "tags": 0.4087161959075558
+    }
+  },
+  {
+    "user_id": 36,
+    "preferred_nationalities": [
+      "British",
+      "Flemish"
+    ],
+    "preferred_classifications": [
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Infants",
+      "Virgin Mary",
+      "Judith",
+      "Portraits",
+      "Adoration of the Magi"
+    ],
+    "period_center": 1775,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2595183469916086,
+      "period": 0.23293714988399875,
+      "classification": 0.15420766425006383,
+      "tags": 0.3533368388743288
+    }
+  },
+  {
+    "user_id": 37,
+    "preferred_nationalities": [
+      "French",
+      "British"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Family",
+      "Dancers",
+      "Dogs",
+      "Women"
+    ],
+    "period_center": 1778,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2924946996496997,
+      "period": 0.17065789701096423,
+      "classification": 0.02733263394077534,
+      "tags": 0.5095147693985607
+    }
+  },
+  {
+    "user_id": 38,
+    "preferred_nationalities": [
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Apples",
+      "Female Nudes",
+      "Women",
+      "Virgin Mary"
+    ],
+    "period_center": 1720,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2518505371225787,
+      "period": 0.14713959938186327,
+      "classification": 0.17318462295161458,
+      "tags": 0.42782524054394333
+    }
+  },
+  {
+    "user_id": 39,
+    "preferred_nationalities": [
+      "Russian",
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Working",
+      "Madonna and Child",
+      "Winter"
+    ],
+    "period_center": 1650,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.24802203022773628,
+      "period": 0.16356868591733706,
+      "classification": 0.13643401691165505,
+      "tags": 0.45197526694327167
+    }
+  },
+  {
+    "user_id": 40,
+    "preferred_nationalities": [
+      "Italian",
+      "Netherlandish"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Men",
+      "Women",
+      "Painting"
+    ],
+    "period_center": 1440,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2669769425740576,
+      "period": 0.19438325781948676,
+      "classification": 0.13973543149776846,
+      "tags": 0.3989043681086872
+    }
+  },
+  {
+    "user_id": 41,
+    "preferred_nationalities": [
+      "Italian",
+      "Flemish"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Mirrors",
+      "Dancing",
+      "Infants",
+      "Columns",
+      "Landscapes"
+    ],
+    "period_center": 1325,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.23668501210165752,
+      "period": 0.16437384185234852,
+      "classification": 0.12593828471497223,
+      "tags": 0.4730028613310217
+    }
+  },
+  {
+    "user_id": 42,
+    "preferred_nationalities": [
+      "French",
+      "Italian"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Drawings"
+    ],
+    "preferred_tags": [
+      "Cities",
+      "Portraits",
+      "Landscapes",
+      "Female Nudes"
+    ],
+    "period_center": 1630,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.29076258912802466,
+      "period": 0.17131254958383996,
+      "classification": 0.1762601314278602,
+      "tags": 0.36166472986027515
+    }
+  },
+  {
+    "user_id": 43,
+    "preferred_nationalities": [
+      "British",
+      "Flemish"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Flowers",
+      "Battles",
+      "Men",
+      "Rome",
+      "Jesus"
+    ],
+    "period_center": 1700,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.210370145499558,
+      "period": 0.21405502845829188,
+      "classification": 0.23304087609157445,
+      "tags": 0.3425339499505757
+    }
+  },
+  {
+    "user_id": 44,
+    "preferred_nationalities": [
+      "British"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Men",
+      "Deer",
+      "Saints",
+      "Scales",
+      "Christ"
+    ],
+    "period_center": 1790,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.16591957407786515,
+      "period": 0.2323057851384311,
+      "classification": 0.12462914342816708,
+      "tags": 0.47714549735553663
+    }
+  },
+  {
+    "user_id": 45,
+    "preferred_nationalities": [
+      "Spanish"
+    ],
+    "preferred_classifications": [
+      "Paintings",
+      "Miniatures"
+    ],
+    "preferred_tags": [
+      "Men",
+      "Gardens",
+      "Saint Francis",
+      "Nymphs"
+    ],
+    "period_center": 1663,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.22227020715835488,
+      "period": 0.1440332907414782,
+      "classification": 0.19685013483034564,
+      "tags": 0.4368463672698213
+    }
+  },
+  {
+    "user_id": 46,
+    "preferred_nationalities": [
+      "German",
+      "French"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Forests",
+      "Men",
+      "Angels"
+    ],
+    "period_center": 1725,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.2622274900791025,
+      "period": 0.30647808921332076,
+      "classification": 0.11198162602644386,
+      "tags": 0.3193127946811328
+    }
+  },
+  {
+    "user_id": 47,
+    "preferred_nationalities": [
+      "French",
+      "Netherlandish"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Portraits",
+      "Coronation of the Virgin",
+      "Women",
+      "Men",
+      "Crucifixion"
+    ],
+    "period_center": 1743,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.25232738456144027,
+      "period": 0.26797779458554033,
+      "classification": 0.14043601094964425,
+      "tags": 0.3392588099033751
+    }
+  },
+  {
+    "user_id": 48,
+    "preferred_nationalities": [
+      "Hungarian",
+      "Dutch"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Interiors",
+      "Saint Paul",
+      "Saints"
+    ],
+    "period_center": 1860,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.23005070242201875,
+      "period": 0.2701923326847904,
+      "classification": 0.09039606276531516,
+      "tags": 0.4093609021278756
+    }
+  },
+  {
+    "user_id": 49,
+    "preferred_nationalities": [
+      "Dutch",
+      "Italian"
+    ],
+    "preferred_classifications": [
+      "Paintings"
+    ],
+    "preferred_tags": [
+      "Barrels",
+      "Villages",
+      "Christ"
+    ],
+    "period_center": 1422,
+    "period_bandwidth": 50,
+    "weights": {
+      "nationality": 0.286541225484201,
+      "period": 0.2410624366534504,
+      "classification": 0.07962884258842254,
+      "tags": 0.392767495273926
+    }
+  }
+]

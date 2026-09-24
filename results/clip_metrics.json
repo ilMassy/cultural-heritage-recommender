@@ -1,0 +1,47 @@
+{
+  "config": {
+    "top_k": 10,
+    "n_users": 50,
+    "model": "openai/clip-vit-base-patch32",
+    "period_weight": 0.15,
+    "alphas": [
+      0.0,
+      0.5,
+      1.0
+    ],
+    "normalization": "min-max per utente"
+  },
+  "max_recall_at_k": 0.1,
+  "by_alpha": {
+    "0.0": {
+      "precision_at_k": 0.314,
+      "recall_at_k": 0.031400000000000004,
+      "ndcg_at_k": 0.34354985429733886,
+      "std_users": {
+        "precision_at_k": 0.24331872102244825,
+        "recall_at_k": 0.024331872102244825,
+        "ndcg_at_k": 0.26638393368120517
+      }
+    },
+    "0.5": {
+      "precision_at_k": 0.302,
+      "recall_at_k": 0.0302,
+      "ndcg_at_k": 0.3153415047514829,
+      "std_users": {
+        "precision_at_k": 0.24453220646777798,
+        "recall_at_k": 0.0244532206467778,
+        "ndcg_at_k": 0.25745820422458027
+      }
+    },
+    "1.0": {
+      "precision_at_k": 0.252,
+      "recall_at_k": 0.0252,
+      "ndcg_at_k": 0.26006415856754084,
+      "std_users": {
+        "precision_at_k": 0.2435077000835908,
+        "recall_at_k": 0.024350770008359078,
+        "ndcg_at_k": 0.25891052944517967
+      }
+    }
+  }
+}
