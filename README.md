@@ -35,8 +35,7 @@ Il progetto prevede:
   dominio, non nascosta nel report)
 
 Il progetto nasce nell'ambito del corso di **Sistemi Intelligenti per Internet**, come
-evoluzione approvata di una proposta precedente. Lo stato di avanzamento dettagliato, con i
-limiti metodologici e i prossimi passi, è in [`docs/REPORT_AVANZAMENTO.md`](docs/REPORT_AVANZAMENTO.md).
+evoluzione approvata di una proposta precedente.
 
 ---
 
@@ -47,16 +46,13 @@ cultural-heritage-recommender/
 ├── data/
 │   ├── met_objects.jsonl           # 2000 opere (European Paintings)
 │   ├── synthetic_users.json        # 50 profili utente sintetici
-│   └── clip_cache/                 # Embedding CLIP (rigenerabili, non versionati)
-├── docs/
-│   └── REPORT_AVANZAMENTO.md       # Report di avanzamento (stato, risultati, limiti)
 ├── results/                        # Metriche, raccomandazioni, esempi di spiegabilità
 ├── src/
+│   ├── embed_clip.py               # Embedding CLIP testo+immagine (con cache)
 │   ├── fetch_data.py               # Raccolta metadati dal MET Museum Open Access API
 │   ├── generate_user_profiles.py   # Profili sintetici + relevance set (ground truth)
-│   ├── recommender_baseline.py     # Baseline TF-IDF + coseno + metriche
 │   ├── random_baseline.py          # Baseline random e di popolarità (highlight, tag)
-│   ├── embed_clip.py               # Embedding CLIP testo+immagine (con cache)
+│   ├── recommender_baseline.py     # Baseline TF-IDF + coseno + metriche
 │   ├── recommender_clip.py         # Recommender nello spazio CLIP
 │   └── test_pipeline.py            # Test su mini-dataset sintetico
 ├── .gitignore                      # File e cartelle esclusi dal controllo versione
