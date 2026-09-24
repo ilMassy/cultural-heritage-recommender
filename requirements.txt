@@ -6,12 +6,10 @@ scikit-learn
 pandas
 numpy
 
-# Recommender content-based con CLIP
+# Recommender content-based con CLIP (Hugging Face transformers)
 torch
-torchvision
+transformers
 ftfy
-regex
-git+https://github.com/openai/CLIP.git
 
 # Utility
 tqdm
