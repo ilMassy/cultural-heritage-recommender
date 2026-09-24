@@ -7,9 +7,10 @@
 | | |
 |---|---|
 | 🖼️ **Dataset** | [MET Museum Open Access API](https://metmuseum.github.io/) (CC0) |
-| 🖥️ **Hardware** | GPU dedicata, esecuzione locale |
+| 🖥️ **Hardware** | GPU dedicata (CUDA), esecuzione locale |
 | 🐧 **Sistema operativo** | Unix-based (Linux) |
-| 🧩 **Approcci confrontati** | Content-based classico (metadati) · Content-based con CLIP |
+| 🧩 **Approcci confrontati** | Content-based classico (TF-IDF + coseno) · Content-based con CLIP |
+| 🤖 **Modello CLIP** | `openai/clip-vit-base-patch32` (Hugging Face `transformers`) |
 
 ---
 
@@ -19,7 +20,7 @@ L'obiettivo è progettare, sviluppare e valutare un sistema di raccomandazione p
 del cultural heritage, confrontando due paradigmi:
 
 - 📋 **Content-based classico** — similarità calcolata su metadati/descrizioni testuali delle
-  opere (es. TF-IDF, cosine similarity)
+  opere (TF-IDF, cosine similarity)
 - 🧠 **Content-based con CLIP** — embedding congiunti immagine+testo per catturare similarità
   visive e semantiche che i soli metadati non colgono
 
@@ -41,15 +42,27 @@ evoluzione approvata di una proposta precedente.
 
 ```
 cultural-heritage-recommender/
-├── configs/             # File di configurazione esperimenti (YAML)
-├── data/                # Dataset (scaricato, non versionato su Git)
-├── results/             # Metriche di valutazione, esempi di spiegabilità
-├── src/                 # Codice sorgente
-│   └── fetch_data.py    # Raccolta metadati dal MET Museum Open Access API
-├── .gitignore           # File e cartelle esclusi dal controllo versione
-├── README.md            # Documentazione e stato di avanzamento del progetto
-└── requirements.txt     # Dipendenze Python del progetto
+├── configs/                        # File di configurazione esperimenti (YAML)
+├── data/
+│   ├── met_objects.jsonl           # 2000 opere (European Paintings)
+│   ├── synthetic_users.json        # 50 profili utente sintetici
+│   └── clip_cache/                 # Embedding CLIP (rigenerabili, non versionati)
+├── results/                        # Metriche, raccomandazioni, esempi di spiegabilità
+├── src/
+│   ├── fetch_data.py               # Raccolta metadati dal MET Museum Open Access API
+│   ├── generate_user_profiles.py   # Profili sintetici + relevance set (ground truth)
+│   ├── recommender_baseline.py     # Baseline TF-IDF + coseno + metriche
+│   ├── random_baseline.py          # Baseline random e di popolarità (highlight, tag)
+│   ├── embed_clip.py               # Embedding CLIP testo+immagine (con cache)
+│   ├── recommender_clip.py         # Recommender nello spazio CLIP
+│   └── test_pipeline.py            # Test su mini-dataset sintetico
+├── .gitignore                      # File e cartelle esclusi dal controllo versione
+├── README.md                       # Documentazione e stato di avanzamento del progetto
+└── requirements.txt                # Dipendenze Python del progetto
 ```
+
+Gli script in `src/` si importano a vicenda (es. `recommender_clip.py` usa
+`embed_clip.py` e `random_baseline.py`), quindi devono restare nella stessa cartella.
 
 ---
 
@@ -61,11 +74,22 @@ licenza **CC0** su metadati e immagini in pubblico dominio (~470.000 opere total
 
 L'API fornisce solo metadati delle opere (titolo, artista, cultura, periodo, classificazione,
 tag, immagine, ecc.) — **nessun dato di interazione utente** (rating, click, visite). Per
-allenare e valutare i recommender verranno quindi generati **profili utente sintetici**,
-basati su preferenze per artista/cultura/periodo/classificazione — un limite metodologico
-dichiarato esplicitamente, non nascosto.
+allenare e valutare i recommender vengono quindi generati **profili utente sintetici**,
+un limite metodologico dichiarato esplicitamente, non nascosto.
 
-Scope iniziale: **dipartimento 11 (European Paintings)**.
+**Scope:** dipartimento 11 (**European Paintings**), 2000 opere scaricate (con `primaryImage`
+e `isPublicDomain`). In questo dipartimento i campi `culture` e `period` sono vuoti al 100%:
+i profili sono quindi basati su `artistNationality`, fascia temporale (da `objectBeginDate`),
+`classification` e `tags`.
+
+**Profili sintetici e ground truth:**
+
+- 50 utenti, seed 42. Ogni profilo ha un nucleo di preferenze (1–2 nazionalità, una fascia
+  temporale di ±50 anni, 1–2 classificazioni, 3–5 tag) con pesi perturbati per utente.
+- Le opere rilevanti per ogni utente sono il **top 5% per affinità (100 opere)**, calcolata
+  con un punteggio a pesi additivi più rumore controllato.
+- Con 100 opere rilevanti e k=10, la **recall@10 ha un massimo teorico di 0.10**: nei
+  risultati viene riportata anche normalizzata (R/0.10).
 
 ---
 
@@ -90,6 +114,24 @@ python src/fetch_data.py --list_departments
 python src/fetch_data.py --department_id 11 --max_items 2000 --output data/met_objects.jsonl
 ```
 
+## ▶️ Esecuzione della pipeline
+
+Comandi nell'ordine in cui sono stati eseguiti (i risultati riportati sotto valgono per
+seed 42, 50 utenti, top 5%, k=10):
+
+```bash
+# Profili utente sintetici + ground truth
+python src/generate_user_profiles.py --n_users 50 --stats
+
+# Baseline: TF-IDF e random/popolarità
+python src/recommender_baseline.py --top_k 10
+python src/random_baseline.py --top_k 10 --n_runs 200 --seed 42
+
+# CLIP: embedding (richiede GPU per tempi ragionevoli) e recommender
+python src/embed_clip.py
+python src/recommender_clip.py --top_k 10
+```
+
 ---
 
 ## 🗺️ Roadmap
@@ -97,12 +139,15 @@ python src/fetch_data.py --department_id 11 --max_items 2000 --output data/met_o
 - [x] Proposta di progetto approvata dal docente
 - [x] Dataset individuato e verificato (MET Museum Open Access API)
 - [x] `fetch_data.py` scritto
-- [x] Repository GitHub creato e popolato con il setup iniziale
-- [ ] Raccolta dati eseguita (`fetch_data.py` lanciato con successo)
-- [ ] Generazione profili utente sintetici
-- [ ] Recommender content-based classico (baseline)
-- [ ] Recommender content-based con embedding CLIP
-- [ ] Valutazione (precision@k, recall@k, NDCG)
+- [x] Repository GitHub creato
+- [x] Raccolta dati eseguita (2000 opere, European Paintings)
+- [x] Generazione profili utente sintetici (50 utenti) e ground truth
+- [x] Recommender content-based classico (baseline TF-IDF)
+- [x] Baseline random e di popolarità
+- [x] Recommender content-based con embedding CLIP (α = 0, 0.5, 1)
+- [x] Valutazione a k=10 (precision@k, recall@k, NDCG) per tutti i modelli
+- [ ] Ablation sul peso del periodo per CLIP
+- [ ] Test di significatività appaiati per utente
 - [ ] Modulo di spiegabilità delle raccomandazioni
 - [ ] Ablation study (peso testo/immagine, valore di k, design profili sintetici)
 - [ ] Report finale
@@ -119,6 +164,52 @@ python src/fetch_data.py --department_id 11 --max_items 2000 --output data/met_o
 
 ---
 
+## 📈 Risultati preliminari (k=10, 50 utenti, seed 42)
+
+| Metodo | P@10 | R normalizzata (R/0.10) | NDCG@10 |
+|---|---|---|---|
+| Random (media su 200 run) | 0.049 | 0.05 | 0.050 |
+| Popolarità (highlight) | 0.061 | 0.06 | 0.061 |
+| Popolarità (tag) | 0.040 | 0.04 | 0.035 |
+| **TF-IDF** (con boost periodo 0.15) | **0.588** | 0.59 | 0.613 |
+| TF-IDF senza boost periodo | 0.432 | 0.43 | 0.451 |
+| Solo periodo (riferimento) | 0.354 | 0.35 | 0.343 |
+| CLIP α=0 (solo testo) | 0.314 | 0.31 | 0.344 |
+| CLIP α=0.5 (mista) | 0.302 | 0.30 | 0.315 |
+| CLIP α=1 (solo immagine) | 0.252 | 0.25 | 0.260 |
+
+Le configurazioni CLIP usano un boost del periodo di 0.15. La deviazione standard tra utenti
+di P@10 è circa 0.21 per TF-IDF e 0.24 per CLIP.
+
+**Come leggere questi numeri:**
+
+- Tutti i modelli personalizzati sono molto sopra il random e le baseline di popolarità.
+- Il termine "periodo" è identico nel ground truth e nei recommender, quindi 0.588 va sempre
+  riportato insieme a 0.432 (senza periodo) e 0.354 (solo periodo).
+- Nessuna configurazione CLIP supera il ranking "solo periodo". Non è ancora possibile dire
+  cosa aggiunga CLIP oltre al periodo finché non è stata eseguita l'ablation con peso del
+  periodo pari a 0.
+- Con 50 utenti e deviazione standard ≈ 0.24, le differenze tra configurazioni CLIP non sono
+  interpretabili senza test appaiati: al momento non si può concludere che il testo batta
+  l'immagine.
+- Il ground truth è costruito su metadati, quindi TF-IDF parte avvantaggiato rispetto a CLIP.
+
+---
+
+## ⚠️ Limiti noti
+
+- **Profili sintetici:** nessun dato di interazione reale; un solo seed di generazione.
+- **Feature condivise:** ground truth e TF-IDF usano gli stessi attributi (nazionalità,
+  classificazione, tag, periodo), quindi un accordo elevato è in parte atteso.
+- **Diversità dei profili limitata:** 14 nazionalità su 34, 4 classificazioni su 6, 105 tag su
+  527 usati dai profili; i gusti popolari sono favoriti dal campionamento per frequenza.
+- **Scale diverse tra i modelli:** nel TF-IDF il coseno è grezzo, in CLIP le serie sono
+  normalizzate min-max per utente, quindi lo stesso peso nominale del periodo ha un'influenza
+  effettiva diversa.
+- **Testo delle opere senza nazionalità** nell'input CLIP, mentre il prompt utente la contiene.
+
+---
+
 ## 👥 Autore
 
-Massimiliano Giangreco 
+Massimiliano Giangreco
