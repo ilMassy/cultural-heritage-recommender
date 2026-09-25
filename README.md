@@ -35,8 +35,7 @@ Il progetto prevede:
   dominio, non nascosta nel report)
 
 Il progetto nasce nell'ambito del corso di **Sistemi Intelligenti per Internet**, come
-evoluzione approvata di una proposta precedente. Lo stato di avanzamento dettagliato, con i
-limiti metodologici e i prossimi passi, è in [`docs/REPORT_AVANZAMENTO.md`](docs/REPORT_AVANZAMENTO.md).
+evoluzione approvata di una proposta precedente.
 
 ---
 
@@ -48,8 +47,6 @@ cultural-heritage-recommender/
 │   ├── met_objects.jsonl           # 2000 opere (European Paintings)
 │   ├── synthetic_users.json        # 50 profili utente sintetici
 │   └── clip_cache/                 # Embedding CLIP (rigenerabili, non versionati)
-├── docs/
-│   └── REPORT_AVANZAMENTO.md       # Report di avanzamento (stato, risultati, limiti)
 ├── results/                        # Metriche, raccomandazioni, esempi di spiegabilità
 ├── src/
 │   ├── fetch_data.py               # Raccolta metadati dal MET Museum Open Access API
@@ -110,12 +107,18 @@ pip install -r requirements.txt          # dipendenze del progetto
 pip install -r requirements-lock.txt
 ```
 
-**Versioni e hardware.** I risultati sono stati ottenuti con le versioni in
-`requirements-lock.txt` (generato con `pip freeze` nell'ambiente usato). La versione di
-`transformers` conta: in quella installata `get_text_features` restituiva un oggetto invece
-di un tensore, per questo `embed_clip.py` passa da `text_model`/`vision_model` più la
-proiezione. Il calcolo degli embedding CLIP richiede una GPU CUDA per tempi ragionevoli
-(su CPU funziona ma è molto più lento); TF-IDF, baseline e valutazione girano su CPU.
+**Versioni e hardware.** I risultati sono stati ottenuti con `transformers==5.17.0`,
+`torch==2.14.0`, `numpy==2.5.3`, GPU CUDA 13 (versioni esatte in `requirements-lock.txt`,
+generato con `pip freeze`). La versione di `transformers` conta: in quella installata
+`get_text_features` restituiva un oggetto invece di un tensore, per questo `embed_clip.py`
+passa da `text_model`/`vision_model` più la proiezione. Il calcolo degli embedding CLIP
+richiede una GPU CUDA per tempi ragionevoli (su CPU funziona ma è molto più lento); TF-IDF,
+baseline e valutazione girano su CPU.
+
+`requirements-lock.txt` contiene anche alcuni pacchetti non importati da nessuno script
+(`pandas`, `scikit-learn`, `scipy`, `torchvision`, il pacchetto CLIP ufficiale di OpenAI):
+probabili resti di prove precedenti nel venv, innocui ma da ripulire prima della consegna
+finale se non servono altrove nel progetto.
 
 ## 📥 Raccolta dati
 
