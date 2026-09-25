@@ -58,8 +58,9 @@ cultural-heritage-recommender/
 │   └── test_pipeline.py            # Test su mini-dataset sintetico
 ├── .gitignore                      # File e cartelle esclusi dal controllo versione
 ├── README.md                       # Documentazione e stato di avanzamento del progetto
-├── requirements.txt                # Dipendenze Python del progetto
-└── requirements-lock.txt           # Versioni esatte usate per i risultati (pip freeze)
+├── requirements-lock.txt           # Versioni esatte usate per i risultati (pip freeze)
+└── requirements.txt                # Dipendenze Python del progetto
+
 ```
 
 Gli script in `src/` si importano a vicenda (es. `recommender_clip.py` usa
