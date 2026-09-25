@@ -1,0 +1,8 @@
+{
+  "top_k": 10,
+  "period_weight": 1.0,
+  "n_users": 50,
+  "precision_at_k": 0.354,
+  "recall_at_k": 0.03540000000000001,
+  "ndcg_at_k": 0.34344174373865594
+}
