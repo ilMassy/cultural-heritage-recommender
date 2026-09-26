@@ -1,0 +1,36 @@
+{
+  "config": {
+    "top_k": 10,
+    "n_users": 50,
+    "model": "openai/clip-vit-base-patch32",
+    "period_weight": 0.0,
+    "alphas": [
+      0.0,
+      1.0
+    ],
+    "normalization": "min-max per utente"
+  },
+  "max_recall_at_k": 0.1,
+  "by_alpha": {
+    "0.0": {
+      "precision_at_k": 0.158,
+      "recall_at_k": 0.0158,
+      "ndcg_at_k": 0.17293698253591067,
+      "std_users": {
+        "precision_at_k": 0.16503332996701,
+        "recall_at_k": 0.016503332996701,
+        "ndcg_at_k": 0.19118461966813563
+      }
+    },
+    "1.0": {
+      "precision_at_k": 0.15,
+      "recall_at_k": 0.015,
+      "ndcg_at_k": 0.14980401425660375,
+      "std_users": {
+        "precision_at_k": 0.17804493814764855,
+        "recall_at_k": 0.017804493814764857,
+        "ndcg_at_k": 0.1879775845937485
+      }
+    }
+  }
+}
