@@ -1,0 +1,25 @@
+{
+  "config": {
+    "top_k": 10,
+    "n_users": 50,
+    "model": "openai/clip-vit-base-patch32",
+    "period_weight": 1.0,
+    "alphas": [
+      0.5
+    ],
+    "normalization": "min-max per utente"
+  },
+  "max_recall_at_k": 0.1,
+  "by_alpha": {
+    "0.5": {
+      "precision_at_k": 0.354,
+      "recall_at_k": 0.0354,
+      "ndcg_at_k": 0.34344174373865594,
+      "std_users": {
+        "precision_at_k": 0.2547233793745678,
+        "recall_at_k": 0.025472337937456783,
+        "ndcg_at_k": 0.2650353284395297
+      }
+    }
+  }
+}
