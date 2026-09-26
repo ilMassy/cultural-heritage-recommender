@@ -1,0 +1,50 @@
+{
+  "CLIP a=0 w=0.15 (solo testo) vs CLIP a=1 w=0.15 (solo immagine)": {
+    "mean_diff": 0.062,
+    "ci_95": [
+      -0.012,
+      0.136
+    ],
+    "wilcoxon_p": 0.1057783908258821
+  },
+  "CLIP a=0.5 w=0 (mista, no periodo) vs CLIP a=0.5 w=0.15 (mista, default)": {
+    "mean_diff": -0.13799999999999998,
+    "ci_95": [
+      -0.198,
+      -0.078
+    ],
+    "wilcoxon_p": 0.0001340266027018896
+  },
+  "CLIP a=0.5 w=0.15 (mista, default) vs CLIP a=0.5 w=1 (solo periodo, via CLIP)": {
+    "mean_diff": -0.052000000000000005,
+    "ci_95": [
+      -0.134,
+      0.031999999999999994
+    ],
+    "wilcoxon_p": 0.13299553687038307
+  },
+  "CLIP a=0 w=0 (solo testo, no periodo) vs CLIP a=1 w=0 (solo immagine, no periodo)": {
+    "mean_diff": 0.007999999999999998,
+    "ci_95": [
+      -0.06,
+      0.076
+    ],
+    "wilcoxon_p": 0.7320426940779681
+  },
+  "TF-IDF w=0 (solo testo) vs CLIP a=0.5 w=0 (mista, no periodo)": {
+    "mean_diff": 0.268,
+    "ci_95": [
+      0.19,
+      0.3459999999999999
+    ],
+    "wilcoxon_p": 6.870373737083952e-07
+  },
+  "TF-IDF (w=0.15, baseline) vs CLIP a=0.5 w=0.15 (mista, default)": {
+    "mean_diff": 0.286,
+    "ci_95": [
+      0.20199999999999999,
+      0.37
+    ],
+    "wilcoxon_p": 1.9119532082651825e-06
+  }
+}
