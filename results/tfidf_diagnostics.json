@@ -1,0 +1,400 @@
+{
+  "idf_by_prefix": {
+    "nat": {
+      "n_token_distinti": 34,
+      "idf_medio": 6.27129943918938,
+      "idf_mediano": 6.900303768711005,
+      "idf_max": 7.907755278982137
+    },
+    "cls": {
+      "n_token_distinti": 6,
+      "idf_medio": 5.120374468616582,
+      "idf_mediano": 5.290865856276904,
+      "idf_max": 7.907755278982137
+    },
+    "tag": {
+      "n_token_distinti": 527,
+      "idf_medio": 7.012503560960536,
+      "idf_mediano": 7.502290170873972,
+      "idf_max": 7.907755278982137
+    }
+  },
+  "top1_match_fraction": {
+    "nat": 0.64,
+    "cls": 0.92,
+    "tag": 0.96
+  },
+  "n_users": 50,
+  "mcnemar_tests": {
+    "nat_match_vs_tag_match": {
+      "b": 2,
+      "c": 18,
+      "chi2": 11.25,
+      "p_value": 0.0007962301575908114
+    },
+    "nat_match_vs_cls_match": {
+      "b": 2,
+      "c": 16,
+      "chi2": 9.38888888888889,
+      "p_value": 0.002183044737362255
+    },
+    "cls_match_vs_tag_match": {
+      "b": 2,
+      "c": 4,
+      "chi2": 0.16666666666666666,
+      "p_value": 0.6830913983096087
+    }
+  },
+  "per_user": [
+    {
+      "user_id": "0",
+      "top1_item": 437582,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "1",
+      "top1_item": 437736,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "2",
+      "top1_item": 437269,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "3",
+      "top1_item": 436823,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "4",
+      "top1_item": 436987,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "5",
+      "top1_item": 436337,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "6",
+      "top1_item": 435983,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "7",
+      "top1_item": 436983,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "8",
+      "top1_item": 437193,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "9",
+      "top1_item": 436559,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "10",
+      "top1_item": 436213,
+      "nat_match": false,
+      "cls_match": false,
+      "tag_match": true
+    },
+    {
+      "user_id": "11",
+      "top1_item": 438636,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "12",
+      "top1_item": 436905,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "13",
+      "top1_item": 436399,
+      "nat_match": false,
+      "cls_match": false,
+      "tag_match": true
+    },
+    {
+      "user_id": "14",
+      "top1_item": 435630,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "15",
+      "top1_item": 435975,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "16",
+      "top1_item": 436877,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "17",
+      "top1_item": 437209,
+      "nat_match": true,
+      "cls_match": false,
+      "tag_match": true
+    },
+    {
+      "user_id": "18",
+      "top1_item": 437602,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "19",
+      "top1_item": 437595,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "20",
+      "top1_item": 437928,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "21",
+      "top1_item": 436603,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "22",
+      "top1_item": 435854,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "23",
+      "top1_item": 436542,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "24",
+      "top1_item": 436815,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "25",
+      "top1_item": 437354,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "26",
+      "top1_item": 435878,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "27",
+      "top1_item": 436065,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "28",
+      "top1_item": 435966,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "29",
+      "top1_item": 435670,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "30",
+      "top1_item": 437049,
+      "nat_match": true,
+      "cls_match": false,
+      "tag_match": true
+    },
+    {
+      "user_id": "31",
+      "top1_item": 437960,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": false
+    },
+    {
+      "user_id": "32",
+      "top1_item": 436871,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": false
+    },
+    {
+      "user_id": "33",
+      "top1_item": 435895,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "34",
+      "top1_item": 435730,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "35",
+      "top1_item": 437651,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "36",
+      "top1_item": 436273,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "37",
+      "top1_item": 436322,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "38",
+      "top1_item": 436027,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "39",
+      "top1_item": 435771,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "40",
+      "top1_item": 436347,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "41",
+      "top1_item": 436992,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "42",
+      "top1_item": 436128,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "43",
+      "top1_item": 436314,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "44",
+      "top1_item": 438378,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "45",
+      "top1_item": 436865,
+      "nat_match": false,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "46",
+      "top1_item": 435975,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "47",
+      "top1_item": 437185,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "48",
+      "top1_item": 437170,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    },
+    {
+      "user_id": "49",
+      "top1_item": 437545,
+      "nat_match": true,
+      "cls_match": true,
+      "tag_match": true
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "config": {
+    "top_k": 10,
+    "n_users": 50,
+    "model": "openai/clip-vit-base-patch32",
+    "period_weight": 0.15,
+    "alphas": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7,
+      0.8,
+      0.9,
+      1.0
+    ],
+    "normalization": "min-max per utente"
+  },
+  "max_recall_at_k": 0.1,
+  "by_alpha": {
+    "0.0": {
+      "precision_at_k": 0.314,
+      "recall_at_k": 0.031400000000000004,
+      "ndcg_at_k": 0.34354985429733886,
+      "std_users": {
+        "precision_at_k": 0.24331872102244825,
+        "recall_at_k": 0.024331872102244825,
+        "ndcg_at_k": 0.26638393368120517
+      }
+    },
+    "0.1": {
+      "precision_at_k": 0.33,
+      "recall_at_k": 0.033,
+      "ndcg_at_k": 0.35794974744667885,
+      "std_users": {
+        "precision_at_k": 0.25238858928247926,
+        "recall_at_k": 0.025238858928247926,
+        "ndcg_at_k": 0.2755892670038318
+      }
+    },
+    "0.2": {
+      "precision_at_k": 0.34600000000000003,
+      "recall_at_k": 0.0346,
+      "ndcg_at_k": 0.3679088969168557,
+      "std_users": {
+        "precision_at_k": 0.25393700006103875,
+        "recall_at_k": 0.025393700006103876,
+        "ndcg_at_k": 0.2786694257740974
+      }
+    },
+    "0.3": {
+      "precision_at_k": 0.33,
+      "recall_at_k": 0.033,
+      "ndcg_at_k": 0.34929991067966504,
+      "std_users": {
+        "precision_at_k": 0.24103941586387898,
+        "recall_at_k": 0.0241039415863879,
+        "ndcg_at_k": 0.2681948141753047
+      }
+    },
+    "0.4": {
+      "precision_at_k": 0.324,
+      "recall_at_k": 0.032400000000000005,
+      "ndcg_at_k": 0.33004777705578775,
+      "std_users": {
+        "precision_at_k": 0.24212393520674488,
+        "recall_at_k": 0.02421239352067449,
+        "ndcg_at_k": 0.26118445149736846
+      }
+    },
+    "0.5": {
+      "precision_at_k": 0.302,
+      "recall_at_k": 0.0302,
+      "ndcg_at_k": 0.3153415047514829,
+      "std_users": {
+        "precision_at_k": 0.24453220646777798,
+        "recall_at_k": 0.0244532206467778,
+        "ndcg_at_k": 0.25745820422458027
+      }
+    },
+    "0.6": {
+      "precision_at_k": 0.31,
+      "recall_at_k": 0.031,
+      "ndcg_at_k": 0.3128396247496678,
+      "std_users": {
+        "precision_at_k": 0.24186773244895649,
+        "recall_at_k": 0.02418677324489565,
+        "ndcg_at_k": 0.24999681034465981
+      }
+    },
+    "0.7": {
+      "precision_at_k": 0.29,
+      "recall_at_k": 0.028999999999999998,
+      "ndcg_at_k": 0.30178151345881477,
+      "std_users": {
+        "precision_at_k": 0.22561028345356957,
+        "recall_at_k": 0.022561028345356955,
+        "ndcg_at_k": 0.2429149292331761
+      }
+    },
+    "0.8": {
+      "precision_at_k": 0.308,
+      "recall_at_k": 0.0308,
+      "ndcg_at_k": 0.3108529976635014,
+      "std_users": {
+        "precision_at_k": 0.23735205918634875,
+        "recall_at_k": 0.023735205918634875,
+        "ndcg_at_k": 0.25535568721878554
+      }
+    },
+    "0.9": {
+      "precision_at_k": 0.29,
+      "recall_at_k": 0.028999999999999998,
+      "ndcg_at_k": 0.29495775531340784,
+      "std_users": {
+        "precision_at_k": 0.24839484696748443,
+        "recall_at_k": 0.024839484696748442,
+        "ndcg_at_k": 0.2652313951481693
+      }
+    },
+    "1.0": {
+      "precision_at_k": 0.252,
+      "recall_at_k": 0.0252,
+      "ndcg_at_k": 0.26006415856754084,
+      "std_users": {
+        "precision_at_k": 0.2435077000835908,
+        "recall_at_k": 0.024350770008359078,
+        "ndcg_at_k": 0.25891052944517967
+      }
+    }
+  }
+}
