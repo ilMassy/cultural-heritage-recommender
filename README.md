@@ -84,8 +84,6 @@ Ground truth e recommender condividono il termine *periodo*; profili sintetici e
 
 ---
 
-<div align="center">
+## 👤 Autore
 
-**Massimiliano Giangreco** 
-
-</div>
+**Massimiliano Giangreco**
