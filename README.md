@@ -86,6 +86,6 @@ Ground truth e recommender condividono il termine *periodo*; profili sintetici e
 
 <div align="center">
 
-**Massimiliano Giangreco** · Prof. Giuseppe Sansonetti · Roma Tre
+**Massimiliano Giangreco** 
 
 </div>
