@@ -123,6 +123,9 @@ def main():
         ("CLIP a=0 w=0 (solo testo, no periodo)", "CLIP a=1 w=0 (solo immagine, no periodo)"),
         ("TF-IDF w=0 (solo testo)", "CLIP a=0.5 w=0 (mista, no periodo)"),
         ("TF-IDF (w=0.15, baseline)", "CLIP a=0.5 w=0.15 (mista, default)"),
+        # --- aggiunte v20 (pianificate, non post hoc): TF-IDF vs solo periodo
+        ("TF-IDF (w=0.15, baseline)", "TF-IDF w=1 (solo periodo)"),
+        ("TF-IDF w=0 (solo testo)", "TF-IDF w=1 (solo periodo)"),
         # --- aggiunte v17 (ESPLORATIVE): alpha=0.2 e' stato scelto perche' migliore su questi
         # stessi 50 utenti (11 valori provati), quindi i p-value sono ottimistici (selezione
         # post hoc). La verifica fuori campione e' il seed-sweep con --alpha 0.2 (seed 100-109).
