@@ -14,3 +14,6 @@ ftfy
 # Utility
 tqdm
 Pillow
+
+# Test (metrics.py, score_users/minmax di CLIP — punto 11 della roadmap)
+pytest

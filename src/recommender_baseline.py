@@ -35,6 +35,7 @@ from pathlib import Path
 import numpy as np
 
 from generate_user_profiles import extract_nationalities, extract_tags, extract_year
+from metrics import precision_at_k, recall_at_k, ndcg_at_k
 
 
 # Boost blando per items entro la fascia temporale di interesse del profilo — separato
@@ -130,34 +131,9 @@ def recommend_for_profile(profile, item_ids, item_vectors, records_by_id, idf, t
 
 
 # --- Metriche di valutazione -----------------------------------------------------
-
-def precision_at_k(recommended_ids, relevant_ids, k):
-    top = recommended_ids[:k]
-    if not top:
-        return 0.0
-    hits = len(set(top) & set(relevant_ids))
-    return hits / len(top)
-
-
-def recall_at_k(recommended_ids, relevant_ids, k):
-    if not relevant_ids:
-        return 0.0
-    top = recommended_ids[:k]
-    hits = len(set(top) & set(relevant_ids))
-    return hits / len(relevant_ids)
-
-
-def ndcg_at_k(recommended_ids, relevant_ids, k):
-    relevant_set = set(relevant_ids)
-    dcg = 0.0
-    for i, oid in enumerate(recommended_ids[:k]):
-        if oid in relevant_set:
-            dcg += 1.0 / math.log2(i + 2)  # posizioni 1-indexed -> log2(rank+1)
-    ideal_hits = min(len(relevant_set), k)
-    idcg = sum(1.0 / math.log2(i + 2) for i in range(ideal_hits))
-    if idcg == 0:
-        return 0.0
-    return dcg / idcg
+# Spostate in metrics.py (punto 11 della roadmap): un solo posto condiviso con
+# random_baseline.py e recommender_clip.py, invece di tre copie che potrebbero
+# disallinearsi in futuro. Logica invariata, solo spostata — vedi metrics.py.
 
 
 def main():

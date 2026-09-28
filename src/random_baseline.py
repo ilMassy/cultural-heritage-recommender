@@ -21,6 +21,8 @@ import statistics
 from collections import Counter
 from pathlib import Path
 
+from metrics import precision_at_k, recall_at_k, ndcg_at_k
+
 
 # ---------------------------------------------------------------- caricamento
 def load_catalog(path):
@@ -70,19 +72,13 @@ def load_relevance_sets(path):
     raise ValueError("Formato user_relevance_sets.json non riconosciuto")
 
 
-# ------------------------------------------------------------------- metriche
-def precision_at_k(recs, rel, k):
-    return sum(1 for r in recs[:k] if r in rel) / k
-
-
-def recall_at_k(recs, rel, k):
-    return sum(1 for r in recs[:k] if r in rel) / len(rel) if rel else 0.0
-
-
-def ndcg_at_k(recs, rel, k):
-    dcg = sum(1.0 / math.log2(i + 2) for i, r in enumerate(recs[:k]) if r in rel)
-    idcg = sum(1.0 / math.log2(i + 2) for i in range(min(len(rel), k)))
-    return dcg / idcg if idcg > 0 else 0.0
+# --- Metriche di valutazione -----------------------------------------------------
+# Spostate in metrics.py (punto 11 della roadmap): stesso modulo condiviso usato da
+# recommender_baseline.py, così anche recommender_clip.py (che importa evaluate() da
+# QUESTO file) finisce per usare la stessa identica implementazione. Equivalenza
+# numerica con le vecchie funzioni locali verificata su 2000 casi casuali prima del
+# collegamento: 0 discrepanze (le vecchie dividevano precision sempre per k, queste per
+# len(top) — coincidono perché qui `recs` ha sempre esattamente k elementi).
 
 
 def evaluate(recs_by_user, rel_sets, k):

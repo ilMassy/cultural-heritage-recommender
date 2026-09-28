@@ -17,6 +17,7 @@ httpcore==1.0.9
 httpx==0.28.1
 huggingface_hub==1.33.0
 idna==3.20
+iniconfig==2.3.0
 Jinja2==3.1.6
 joblib==1.6.0
 markdown-it-py==4.2.0
@@ -44,7 +45,9 @@ nvidia-nvtx==13.0.85
 packaging==26.3
 pandas==3.0.6
 pillow==12.3.0
+pluggy==1.6.0
 Pygments==2.21.0
+pytest==9.1.1
 python-dateutil==2.9.0.post0
 PyYAML==6.0.3
 regex==2026.9.10

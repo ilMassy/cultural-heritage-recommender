@@ -1,5 +1,6 @@
 {
   "top_k": 10,
+  "period_weight": 0.15,
   "n_users": 50,
   "precision_at_k": 0.5880000000000001,
   "recall_at_k": 0.058800000000000005,
