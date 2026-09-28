@@ -50,8 +50,9 @@ cultural-heritage-recommender/
 ├── data/         # met_objects.jsonl, synthetic_users.json (clip_cache/ non versionata)
 ├── results/      # metriche, raccomandazioni, test di significatività, spiegazioni
 ├── src/          # codice: recommender, metriche, ablation, test statistici, spiegabilità
-├── requirements.txt
-└── requirements-lock.txt   # versioni esatte dei risultati
+├── requirements-lock.txt   # versioni esatte dei risultati
+└── requirements.txt
+
 ```
 
 ## 🚀 Avvio rapido
