@@ -94,6 +94,7 @@ def main():
         "TF-IDF w=0 (solo testo)": (f"{RESULTS_DIR}/baseline_recommendations_pw0.json", None),
         "TF-IDF w=1 (solo periodo)": (f"{RESULTS_DIR}/baseline_recommendations_pw1.json", None),
         "CLIP a=0.5 w=0.15 (mista, default)": (f"{RESULTS_DIR}/clip_recommendations.json", "0.5"),
+        "CLIP a=0.2 w=0.15 (mista, alpha migliore in ablation)": (f"{RESULTS_DIR}/clip_recommendations.json", "0.2"),
         "CLIP a=0 w=0.15 (solo testo)": (f"{RESULTS_DIR}/clip_recommendations.json", "0.0"),
         "CLIP a=1 w=0.15 (solo immagine)": (f"{RESULTS_DIR}/clip_recommendations.json", "1.0"),
         "CLIP a=0.5 w=0 (mista, no periodo)": (f"{RESULTS_DIR}/clip_recommendations_pw0.json", "0.5"),
@@ -122,6 +123,12 @@ def main():
         ("CLIP a=0 w=0 (solo testo, no periodo)", "CLIP a=1 w=0 (solo immagine, no periodo)"),
         ("TF-IDF w=0 (solo testo)", "CLIP a=0.5 w=0 (mista, no periodo)"),
         ("TF-IDF (w=0.15, baseline)", "CLIP a=0.5 w=0.15 (mista, default)"),
+        # --- aggiunte v17 (ESPLORATIVE): alpha=0.2 e' stato scelto perche' migliore su questi
+        # stessi 50 utenti (11 valori provati), quindi i p-value sono ottimistici (selezione
+        # post hoc). La verifica fuori campione e' il seed-sweep con --alpha 0.2 (seed 100-109).
+        ("CLIP a=0.2 w=0.15 (mista, alpha migliore in ablation)", "CLIP a=0.5 w=1 (solo periodo, via CLIP)"),
+        ("CLIP a=0.2 w=0.15 (mista, alpha migliore in ablation)", "CLIP a=0.5 w=0.15 (mista, default)"),
+        ("TF-IDF (w=0.15, baseline)", "CLIP a=0.2 w=0.15 (mista, alpha migliore in ablation)"),
     ]
 
     print("=" * 70)

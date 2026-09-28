@@ -46,5 +46,29 @@
       0.37
     ],
     "wilcoxon_p": 1.9119532082651825e-06
+  },
+  "CLIP a=0.2 w=0.15 (mista, alpha migliore in ablation) vs CLIP a=0.5 w=1 (solo periodo, via CLIP)": {
+    "mean_diff": -0.008000000000000005,
+    "ci_95": [
+      -0.08199999999999999,
+      0.066
+    ],
+    "wilcoxon_p": 0.6072124073572109
+  },
+  "CLIP a=0.2 w=0.15 (mista, alpha migliore in ablation) vs CLIP a=0.5 w=0.15 (mista, default)": {
+    "mean_diff": 0.044000000000000004,
+    "ci_95": [
+      0.005999999999999998,
+      0.08
+    ],
+    "wilcoxon_p": 0.039835513906502314
+  },
+  "TF-IDF (w=0.15, baseline) vs CLIP a=0.2 w=0.15 (mista, alpha migliore in ablation)": {
+    "mean_diff": 0.242,
+    "ci_95": [
+      0.158,
+      0.32599999999999996
+    ],
+    "wilcoxon_p": 1.764408843852862e-05
   }
 }

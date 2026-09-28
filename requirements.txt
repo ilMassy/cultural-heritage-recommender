@@ -15,5 +15,8 @@ ftfy
 tqdm
 Pillow
 
+# Statistica (significance_test.py: Wilcoxon)
+scipy
+
 # Test (metrics.py, score_users/minmax di CLIP — punto 11 della roadmap)
 pytest
