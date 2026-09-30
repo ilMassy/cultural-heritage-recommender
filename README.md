@@ -32,27 +32,28 @@ Il MET non fornisce interazioni utente, quindi la valutazione usa **50 profili s
 |---|---:|
 | Random | 0.049 |
 | Popolarità (highlight) | 0.061 |
-| Solo periodo *(controllo)* | 0.354 |
 | CLIP + periodo (α = 0.5) | 0.302 |
+| Solo periodo *(controllo)* | 0.354 |
 | TF-IDF senza periodo | 0.432 |
 | **TF-IDF + periodo** | **0.588** |
 
-- ✅ **TF-IDF > CLIP**, con e senza il termine periodo (p < 0.0001, 10 seed su 10)
+- ✅ **TF-IDF > CLIP**, con e senza il termine periodo (p < 0.0001 a seed 42; con il periodo attivo, 10 seed su 10)
 - ⚠️ **Il periodo è un confondente**: è condiviso col ground truth e da solo dà 0.354
 - ❔ **Testo e immagine in CLIP non si distinguono** con questo campione
 
-I risultati completi (ablation, test di significatività, spiegabilità) sono in `results/`.
+Metodo, ablation, test di significatività, spiegabilità e analisi critica sono nel 📄 [**report completo**](Report_Finale_SII.md); i dati grezzi dei risultati sono in `results/`.
 
 ## 🗂️ Struttura
 
 ```
 cultural-heritage-recommender/
 ├── data/         # met_objects.jsonl, synthetic_users.json (clip_cache/ non versionata)
+├── figures/      # grafici del report
 ├── results/      # metriche, raccomandazioni, test di significatività, spiegazioni
 ├── src/          # codice: recommender, metriche, ablation, test statistici, spiegabilità
+├── Report_Finale_SII.md    # report completo
 ├── requirements-lock.txt   # versioni esatte dei risultati
 └── requirements.txt
-
 ```
 
 ## 🚀 Avvio rapido
