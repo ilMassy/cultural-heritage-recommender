@@ -15,8 +15,18 @@ letteratura per content-based filtering: rappresentazione bag-of-words delle ope
 (nazionalita' + classificazione + tag) pesata con TF-IDF, profilo utente rappresentato
 come "documento" costruito dalle sue preferenze dichiarate, similarita' coseno tra
 profilo e opere. La fascia temporale (period_center) non e' inclusa nel bag-of-words
-testuale (non e' un token discreto) ed e' trattata come filtro/boost separato, blando,
-per non riprodurre la stessa logica esatta della formula di ground truth.
+testuale (non e' un token discreto) ed e' trattata come boost separato e di peso
+contenuto (default 0.15).
+
+LIMITE DICHIARATO (circolarita' parziale)
+--------------------------------------------------------------------------------------
+Il TF-IDF non riusa la formula pesata del ground truth, ma il boost del periodo ha la
+STESSA forma funzionale del termine "periodo" del ground truth:
+max(0, 1 - |anno - period_center| / period_bandwidth). Il recommender quindi conosce in
+anticipo una parte dell'informazione che ha generato le etichette, e i punteggi
+risultano gonfiati. Il problema non e' eliminato ma QUANTIFICATO con l'ablation su
+--period_weight: 0 = solo contenuto testuale, 0.15 = baseline, 1 = solo periodo
+(riga di controllo). Vedi Report_Finale_SII.md, sez. 7.2 e 9.3.
 
 Uso:
     python recommender_baseline.py \
@@ -38,8 +48,9 @@ from generate_user_profiles import extract_nationalities, extract_tags, extract_
 from metrics import precision_at_k, recall_at_k, ndcg_at_k
 
 
-# Boost blando per items entro la fascia temporale di interesse del profilo — separato
-# dal bag-of-words testuale apposta, per non replicare la formula pesata del ground truth.
+# Peso del boost per le opere entro la fascia temporale di interesse del profilo. Tenuto
+# separato dal bag-of-words testuale e di peso contenuto, ma NON indipendente dal ground
+# truth: condivide con esso la forma del termine periodo (vedi docstring del modulo).
 PERIOD_BOOST_WEIGHT = 0.15
 
 
@@ -80,7 +91,9 @@ def build_user_document(profile):
 
 
 def build_idf(item_documents):
-    """IDF classico: log(N / df) con smoothing +1 per evitare divisioni per zero."""
+    """IDF smussato: ln(N / (1 + df)) + 1, con logaritmo naturale, calcolato sulle N opere.
+    Il +1 finale mantiene il peso positivo anche per i token presenti in quasi tutto il
+    catalogo."""
     n_docs = len(item_documents)
     df = Counter()
     for doc in item_documents:
@@ -89,8 +102,11 @@ def build_idf(item_documents):
 
 
 def vectorize(doc, idf):
-    """Vettore TF-IDF sparso come dizionario {token: peso}. TF = conteggio grezzo nel
-    documento (i documenti qui sono corti, non serve normalizzazione di lunghezza)."""
+    """Vettore TF-IDF sparso come dizionario {token: peso}, con peso = TF * IDF.
+    TF = conteggio grezzo nel documento (senza logaritmo): i documenti sono corti e i
+    token compaiono di norma una sola volta, quindi non serve normalizzare per lunghezza
+    (l'unica normalizzazione e' quella L2 del coseno). Anche il profilo utente e'
+    vettorizzato con l'IDF del catalogo; token assenti dal catalogo hanno peso 0."""
     tf = Counter(doc)
     return {token: count * idf.get(token, 0.0) for token, count in tf.items()}
 
@@ -108,8 +124,11 @@ def cosine_similarity(vec_a, vec_b):
 
 
 def period_boost(profile, record):
-    """Boost blando in [0, 1] se l'opera cade nella fascia temporale del profilo —
-    trattato separatamente dal TF-IDF testuale, non e' la stessa formula del ground truth."""
+    """Boost in [0, 1]: decresce linearmente con la distanza dell'anno dell'opera dal
+    period_center del profilo, fino a 0 oltre period_bandwidth. E' separato dal TF-IDF
+    testuale ma ha la stessa forma del termine periodo del ground truth (circolarita'
+    parziale, quantificata con --period_weight). Se l'anno e' ignoto restituisce 0.5
+    (ramo di fatto inattivo sul dataset usato, dove l'anno e' sempre disponibile)."""
     year = extract_year(record)
     if year is None:
         return 0.5
@@ -144,8 +163,9 @@ def main():
     parser.add_argument("--top_k", type=int, default=10)
     parser.add_argument("--period_weight", type=float, default=PERIOD_BOOST_WEIGHT,
                         help="Peso del boost del periodo in [0, 1]: score = (1-w)*coseno + w*boost. "
-                             "Default 0.15 (baseline). 0 = solo TF-IDF; 1 = ranking solo per periodo "
-                             "(riferimento per l'analisi di sensibilita').")
+                             "Default 0.15 (baseline). 0 = solo TF-IDF (isola il contenuto); "
+                             "1 = ranking solo per periodo (riga di controllo: e' la stessa funzione "
+                             "del ground truth, non un recommender).")
     parser.add_argument("--output", type=str, default="results/baseline_recommendations.json")
     parser.add_argument("--metrics_output", type=str, default="results/baseline_metrics.json")
     args = parser.parse_args()
