@@ -41,17 +41,17 @@ Il MET non fornisce interazioni utente, quindi la valutazione usa **50 profili s
 - ⚠️ **Il periodo è un confondente**: è condiviso col ground truth e da solo dà 0.354
 - ❔ **Testo e immagine in CLIP non si distinguono** con questo campione
 
-Metodo, ablation, test di significatività, spiegabilità e analisi critica sono nel 📄 [**report completo**](Report_Finale_SII.md); i dati grezzi dei risultati sono in `results/`.
+Metodo, ablation, test di significatività, spiegabilità e analisi critica sono nel 📄 [**report completo**](docs/Report_Finale_SII.pdf); i dati grezzi dei risultati sono in `results/`.
 
 ## 🗂️ Struttura
 
 ```
 cultural-heritage-recommender/
 ├── data/         # met_objects.jsonl, synthetic_users.json (clip_cache/ non versionata)
+├── docs/         # Report_Finale_SII.pdf: report completo
 ├── figures/      # grafici del report
 ├── results/      # metriche, raccomandazioni, test di significatività, spiegazioni
 ├── src/          # codice: recommender, metriche, ablation, test statistici, spiegabilità
-├── Report_Finale_SII.md    # report completo
 ├── requirements-lock.txt   # versioni esatte dei risultati
 └── requirements.txt
 ```
